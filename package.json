@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@floating-ui/dom": "^1.6.11",
+    "@floating-ui/react": "^0.26.25",
     "bootstrap": "^5.3.3"
   }
 }
