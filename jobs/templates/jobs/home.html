@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Nick Eliopoulos{% endblock %}
+
+{% block content %}
+
+{%load static%}
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Nick Eliopoulos</h1>
+                    <p class="lead text-muted">
+                        I am a well-rounded Software Developer with hands-on experience in developing, testing, and integrating software solutions. 
+                        After three years of college and a year-long placement with the Ministry of Health, I have fully committed to my career change. 
+                        While I am actively seeking new opportunities, I recognize that my limited experience may not meet all the qualifications some employers seek. 
+                        To bridge this gap, I've created this website to showcase my skills, technical expertise, and ambition to potential employers.
+                    </p>
+                    <p>
+                        <a href="https://www.linkedin.com/in/nickeliopoulos/" class="btn btn-primary my-2">Check Out my linkedin</a>
+                        <a href="https://github.com/NEenemee" class="btn btn-primary my-2">Check Out My GitHub</a>
+                        <a href="mailto:nickcseli@gmail.com" class="btn btn-primary my-2">Email Me</a>
+                    </p>
+                    <img src="{% static 'img_1939.png' %}" height=300>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    
+{% endblock %}

@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', jobs.views.nick, name='nick'),
     path('jobs/<int:job_id>', jobs.views.detail, name='detail'),
+    path('/home', jobs.views.home, name='home')
 
 ] 
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

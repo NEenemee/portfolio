@@ -1,1 +1,31 @@
-{{job.JobTitle}}
+
+{% extends 'base.html' %}
+
+{% block title %}Portfolio - Nick Eliopoulos{% endblock %}
+
+{% block content %}
+ 
+        <section class="py-5 text-center container"> 
+            <div class="row py-lg-5"> 
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">{{ job.JobTitle }}</h1>
+                    <!-- <p class="lead text-muted">I like to develop websites and applications. On my own time I enjoy watching sports.</p> -->
+                    
+                    <p>
+                        {{job.Employeer}} <br>
+                        {{job.StartDate}} to {{job.EndDate}} <br>
+                        {{job.Location}} <br>
+                        {{job.Description|linebreaks}} 
+    
+    
+  
+                    </p>
+                    <img src="{{job.image.url}}" height=300> <br>
+                    <a href="{% url 'nick' %}" class="btn btn-primary my-2">Back</a>
+                </div>
+            </div>
+        </section>
+
+        
+
+ {%endblock%}
