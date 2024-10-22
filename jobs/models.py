@@ -14,3 +14,12 @@ class Job(models.Model):
 
     def __str__(self):
         return self.JobTitle
+    
+class Project(models.Model):
+    image = models.ImageField(upload_to='images/',default=' ')
+    name = models.CharField(max_length=100, default=' ') 
+    file = models.FileField()
+    description = models.TextField(max_length=2000, default=' ')
+
+    def __str__(self):
+        return self.name
