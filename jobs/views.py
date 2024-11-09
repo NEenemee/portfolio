@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Job
+from .models import Job, Education
 from .models import Project
 
 # Create your views here.
 def jobs(request):
-    jobs = Job.objects
-    return render(request,'jobs/portfolio.html', {'jobs':jobs})
+    jobs = Job.objects.all()
+    education = Education.objects.all()
+    return render(request,'jobs/portfolio.html', {'jobs':jobs,'education':education})
 
 def detail(request,job_id):
     job_detail = get_object_or_404(Job, pk=job_id)

@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-+_ejfhja7ffnp%p3bqbow1s^piue$f$_uqf1a3_-2gs(&g!v(q
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','159.203.23.122','nickeliopoulos.ca','www.nickeliopoulos.ca']
 
 
 # Application definition
@@ -55,6 +56,7 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'DIRS': [BASE_DIR / 'jobs' / 'templates'/ 'base.html'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -85,6 +87,16 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfoliodb',
+#         'USER': 'nick',
+#         'PASSWORD': 'E10Ncs3bopo1',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -123,12 +135,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# STATICFILES_DIRS = [ os.path.(BASE_DIR,'portfolio','statisc')]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DATA_UPLOAD_MAX_MEMORY_SIZE = 20971520

@@ -3,30 +3,66 @@
 {% block title %}Portfolio - Nick Eliopoulos{% endblock %}
 
 {% block content %}
-
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
-                <h2>Past Jobs</h2>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {% for job in jobs.all|dictsortreversed:"EndDate" %}
-                    <div class="col">
-                        <a href="{% url 'detail' job.id %}">
-                            <div class="card shadow-sm">
-                                <img class="card-img-top" width="100%" height="225" src = "{{ job.image.url }}">
-                                </img>
-                                <div class="card-body">
-                                    <p class="card-text"><b>Position: </b>{{ job.JobTitle }}<br></p>
-                                    <p class="card-text"><b>Employer: </b>{{ job.Employeer }}<br></p>
-                                    <p class="card-text"><b>Location: </b>{{ job.Location }}<br><br></p>
-
-                                </div>
-                            </div>
-                        </a>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <h2>Relevant Jobs</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for job in jobs.all %}
+            {% if job.Relavance %}
+            <div class="col">
+                <a href="{% url 'detail' job.id %}">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" width="100%" height="225" src="{{ job.image.url }}">
+                        <div class="card-body">
+                            <p class="card-text"><b>Position: </b>{{ job.JobTitle }}<br></p>
+                            <p class="card-text"><b>Employer: </b>{{ job.Employeer }}<br></p>
+                            <p class="card-text"><b>Location: </b>{{ job.Location }}<br><br></p>
+                        </div>
                     </div>
-                    {% endfor %}
-                </div>
-
+                </a>
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
+
+        <h2>Education</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for edu in education %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <img class="card-img-top" width="100%" height="225" src="{{ edu.image.url }}">
+                        <p class="card-text"><b>School: </b>{{ edu.nameOfSchool }}<br></p>
+                        <p class="card-text"><b>Major: </b>{{ edu.major }}<br></p>
+                        <p class="card-text"><b>Degree: </b>{{ edu.degree }}<br></p>
+                        <p class="card-text"><b>Dates: </b>{{ edu.StartDate }} - {{ edu.EndDate }}<br><br></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2>Soft Skills Roles</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for job in jobs.all %}
+            {% if not job.Relavance %}
+            <div class="col">
+                <a href="{% url 'detail' job.id %}">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" width="100%" height="225" src="{{ job.image.url }}">
+                        <div class="card-body">
+                            <p class="card-text"><b>Position: </b>{{ job.JobTitle }}<br></p>
+                            <p class="card-text"><b>Employer: </b>{{ job.Employeer }}<br></p>
+                            <p class="card-text"><b>Location: </b>{{ job.Location }}<br><br></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 
         {% endblock %}

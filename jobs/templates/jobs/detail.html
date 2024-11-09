@@ -13,7 +13,11 @@
                     
                     <p>
                         {{job.Employeer}} <br>
-                        {{job.StartDate}} to {{job.EndDate}} <br>
+                        {% if job.current %}
+                            <p><b>I Currently work here</b></p>
+                        {% else %}
+                            {{job.StartDate}} to {{job.EndDate}} <br>
+                        {% endif %}
                         {{job.Location}} <br>
                         {{job.Description|linebreaks}} 
     
